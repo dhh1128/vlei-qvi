@@ -12,6 +12,9 @@ source $PWD/source.sh
 # Capture password
 passcode=$(get_passcode $1)
 
-read -p "Enter the Alias to whom you will send the words: " -r alias
+printf "Acting as %s. Use set-person or generate-challenge-as to change.\n\n" "$OWNER"
+
+read -p "Enter the alias you want to authenticate: " -r other_party
 echo " "
-kli challenge verify --generate --out string --name "${QAR_NAME}" --passcode "${passcode}" --alias "${QAR_ALIAS}" --signer "${alias}"
+
+kli challenge verify --generate --out string --name "${QAR_NAME}" --passcode "${passcode}" --alias "${QAR_ALIAS}" --signer "${other_party}"
