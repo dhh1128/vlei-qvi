@@ -43,7 +43,7 @@ fi
 # to immediately upload the file instead of waiting.
 share-via-s3 upload --file "$filename" &
 
-kli vc issue --name "${QAR_NAME}" --passcode "${passcode}" --alias "${QAR_AID_ALIAS}" --registry-name "${QAR_REG_NAME}" --schema EBNaNu-M9P5cgrnfl2Fvymy4E_jvxxyjb70PRtiANlJy --recipient "${recipient}" --data @"data/legal-entity-oor-data.json" --edges @"data/legal-entity-oor-edge-data.json" --rules @"data/rules.json" --out "data/oor.json"
+kli vc issue --name "${QAR_NAME}" --passcode "${passcode}" --alias "${QAR_AID_ALIAS}" --registry-name "${QAR_REG_NAME}" --schema EBNaNu-M9P5cgrnfl2Fvymy4E_jvxxyjb70PRtiANlJy --recipient "${recipient}" --data @"data/legal-entity-oor-data.json" --edges @"data/legal-entity-oor-edge-data.json" --rules @"data/rules.json" --out "$filename"
 
 # Make sure the s3 upload finishes.
 wait
